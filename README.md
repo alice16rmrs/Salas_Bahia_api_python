@@ -9,8 +9,8 @@ Uma API em Python 3 com funções CRUD para um simples cadastro de produtos para
 <ol>
   <li>Clonar/baixar os arquivos deste repositório</li>
   <li>Executar o seguinte código no terminal para instalar as bibliotecas necessárias:<br><code>pip install -r requirements.txt</code></li>
-  <li>Executar a API (API/api.py)</li>
-  <li>Executar a GUI (GUI/gui.py)</li>
+  <li>Executar a API (API/API.py)</li>
+  <li>Executar a GUI (GUI/GUI.py)</li>
   
 </ol>
 
