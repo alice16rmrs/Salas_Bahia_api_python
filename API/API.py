@@ -12,17 +12,17 @@ produtos = [
     {
         'id': 1,
         'nome': u'Cama',
-        'preco': 1200.00
+        'qtd': 1
     },
     {
         'id': 2,
         'nome': u'Microondas',
-        'preco': 650.00
+        'qtd': 3
     },
     {
         'id': 3,
         'nome': u'Coqueteleira',
-        'preco':120.00
+        'qtd': 4
     }
 ]
 
@@ -57,14 +57,14 @@ def create_produto():
     produto = {
         'id': produtos[-1]['id'] + 1,
         'nome': request.json.get('nome', ""),
-        'preco': request.json.get('preco', "")
+        'qtd': request.json.get('qtd', "")
     }
     # Validação
     if len(produto) == 0:
         abort(404)
     if 'nome' in request.json and type(request.json['nome']) is not str:
         abort(400)
-    if 'preco' in request.json and type(request.json['preco']) is not float:
+    if 'qtd' in request.json and type(request.json['qtd']) is not int:
         abort(400)
     #
     produtos.append(produto)
@@ -80,11 +80,11 @@ def update_produto(produto_id):
         abort(404)
     if 'nome' in request.json and type(request.json['nome']) is not str:
         abort(400)
-    if 'preco' in request.json and type(request.json['preco']) is not float:
+    if 'qtd' in request.json and type(request.json['qtd']) is not int:
         abort(400)
     #
     produto[0]['nome'] = request.json.get('nome', produto[0]['nome'])
-    produto[0]['preco'] = request.json.get('preco', produto[0]['preco'])
+    produto[0]['qtd'] = request.json.get('qtd', produto[0]['qtd'])
     return jsonify({'produto': produto[0]})
 
 

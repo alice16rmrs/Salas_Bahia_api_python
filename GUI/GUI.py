@@ -41,7 +41,7 @@ class Application:
         self.container8["pady"] = 20
         self.container8.pack()
 
-        self.labelTitle = Label(self.container1, text="Salas Bahia - CRUD")
+        self.labelTitle = Label(self.container1, text="Salas Bahia Estoque - CRUD")
         self.labelTitle["font"] = ("Arial", "10", "bold")
         self.labelTitle.pack()
 
@@ -61,13 +61,13 @@ class Application:
         self.entryNome["font"] = self.fontePadrao
         self.entryNome.pack(side=LEFT)
 
-        self.labelPreco = Label(self.container4, text="Preço (R$)", font=self.fontePadrao, width=10)
-        self.labelPreco.pack(side=LEFT)
+        self.labelQtd = Label(self.container4, text="Quantidade", font=self.fontePadrao, width=10)
+        self.labelQtd.pack(side=LEFT)
 
-        self.entryPreco = Entry(self.container4)
-        self.entryPreco["width"] = 20
-        self.entryPreco["font"] = self.fontePadrao
-        self.entryPreco.pack(side=LEFT)
+        self.entryQtd = Entry(self.container4)
+        self.entryQtd["width"] = 20
+        self.entryQtd["font"] = self.fontePadrao
+        self.entryQtd.pack(side=LEFT)
 
         self.buttonBuscar = Button(self.container8)
         self.buttonBuscar["text"] = "Buscar\npor ID"
@@ -111,7 +111,7 @@ class Application:
         if req.ok:
             resposta = req.json()
             self.entryNome.insert(0, resposta['produto']['nome'])
-            self.entryPreco.insert(0, resposta['produto']['preco'])
+            self.entryQtd.insert(0, resposta['produto']['qtd'])
         else:
             messagebox.showerror("Erro", "Ocorreu um erro ao consultar a API")
 
@@ -121,11 +121,11 @@ class Application:
 
         # try:
         nome = self.entryNome.get()
-        preco = self.entryPreco.get()
+        qtd = self.entryQtd.get()
 
         data = {
             'nome': nome,
-            'preco': float(preco)
+            'qtd': int(qtd)
         }
 
         headers = {
@@ -146,11 +146,11 @@ class Application:
     def alterarProduto(self):
         id = self.entryID.get()
         nome = self.entryNome.get()
-        preco = self.entryPreco.get()
+        qtd = self.entryQtd.get()
 
         data = {
             'nome': nome,
-            'preco': float(preco)
+            'qtd': int(qtd)
         }
 
         headers = {
@@ -179,7 +179,7 @@ class Application:
             messagebox.showerror("Erro", "Ocorreu um erro ao consultar a API")
 
     def limparTela(self):
-        self.entryPreco.delete(0, END)
+        self.entryQtd.delete(0, END)
         self.entryNome.delete(0, END)
 
 

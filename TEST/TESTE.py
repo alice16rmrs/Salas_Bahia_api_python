@@ -5,7 +5,7 @@ import requests
 
 class TestAPI(unittest.TestCase):
 
-    def test_delete_1(self):
+    def test_delete_3(self):
         req = requests.delete('http://localhost:5000/crud/api/produtos/1')
         self.assertTrue(req.ok)
 
@@ -13,7 +13,7 @@ class TestAPI(unittest.TestCase):
         req = requests.delete('http://localhost:5000/crud/api/produtos/4')
         self.assertTrue(req.ok)
 
-    def test_get_1(self):
+    def test_get_3(self):
         req = requests.get('http://localhost:5000/crud/api/produtos/1')
         self.assertTrue(req.ok)
 
@@ -24,7 +24,7 @@ class TestAPI(unittest.TestCase):
     def test_post_4(self):
         data = {
             'nome': "Microondas",
-            'preco': 400.00
+            'qtd': 10
         }
 
         headers = {
@@ -37,7 +37,7 @@ class TestAPI(unittest.TestCase):
     def test_post_5(self):
         data = {
             'nome': "Computador",
-            'preco': "Não-definido"
+            'qtd': "Não-definido"
         }
 
         headers = {
@@ -47,10 +47,10 @@ class TestAPI(unittest.TestCase):
         req = requests.post('http://localhost:5000/crud/api/produtos', headers=headers, data=json.dumps(data))
         self.assertTrue(req.ok)
 
-    def test_put_1(self):
+    def test_put_3(self):
         data = {
             'nome': "Microondas",
-            'preco': 400.00
+            'qtd': 40
         }
 
         headers = {
@@ -63,7 +63,7 @@ class TestAPI(unittest.TestCase):
     def test_put_4(self):
         data = {
             'nome': "Microondas",
-            'preco': 400.00
+            'qtd': 49
         }
 
         headers = {
