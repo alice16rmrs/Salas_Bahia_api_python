@@ -1,7 +1,7 @@
-# Trabalho de Linguagens de Programação - Prof. João Cunha
+# Trabalho de Linguagens de Programação
 
 ## Introdução
-Uma API em Python 3 com funções CRUD para um simples cadastro de produtos.<br>
+Uma API em Python 3 com funções CRUD para um simples cadastro de produtos para um estoque simples.<br>    
 
 
 
